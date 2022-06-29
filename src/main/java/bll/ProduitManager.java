@@ -41,9 +41,6 @@ public class ProduitManager {
         }
     }
     public void addProduit(Produit produit) throws BLLException{
-        if(produit.getId()!=0){
-            throw new BLLException("produit déjà existant");
-        }
         controlProduit(produit);
         try{
             impl.insert(produit);

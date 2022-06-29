@@ -7,9 +7,9 @@ import java.util.Set;
 public class Additif {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    @Column(name = "libelle")
+    @Column(name = "libelle", length = 255)
     private String libelle;
 
     @ManyToMany(mappedBy = "additifs")

@@ -8,7 +8,7 @@ import java.util.Set;
 public class Produit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "id_category")
@@ -25,25 +25,21 @@ public class Produit {
     private String scoreNutritionnel;
 
     @ManyToMany
-    @JoinTable(name = "product-ingredients",
-    joinColumns = @JoinColumn(name = "ID_PRODUCT", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "ID_INGREDIENT", referencedColumnName = "id"))
+    @JoinTable(name = "produit_ingredients", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "ingredient_id"))
     private Set<Ingredient> ingredients;
+
+    @ManyToMany
+    @JoinTable(name = "produit_additifs", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "additif_id"))
+    private Set<Additif> additifs;
+
+    @ManyToMany
+    @JoinTable(name = "produit_allergenes", joinColumns = @JoinColumn(name = "produit_id"), inverseJoinColumns = @JoinColumn(name = "allergene_id"))
+    private Set<Allergene> allergenes;
 
     @Embedded
     private NutritionnalValue NutritionnalValue;
 
-    @ManyToMany
-    @JoinTable(name = "product-allergens",
-    joinColumns = @JoinColumn(name = "ID_PRODUCT", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "ID_ALLERGEN", referencedColumnName = "id"))
-    private Set<Allergene> allergens;
 
-    @ManyToMany
-    @JoinTable(name = "product-additifs",
-    joinColumns = @JoinColumn(name = "ID_PRODUCT", referencedColumnName = "id"),
-    inverseJoinColumns = @JoinColumn(name = "ID_ADDITIF", referencedColumnName = "id"))
-    private Set<Additif> additifs;
 
     public Produit() {}
 
@@ -57,7 +53,7 @@ public class Produit {
                 ", scoreNutritionnel='" + scoreNutritionnel + '\'' +
                 ", ingredients=" + ingredients +
                 ", NutritionnalValue=" + NutritionnalValue +
-                ", allergens=" + allergens +
+                ", allergens=" + allergenes +
                 ", additifs=" + additifs +
                 '}';
     }
@@ -119,11 +115,11 @@ public class Produit {
     }
 
     public Set<Allergene> getAllergens() {
-        return allergens;
+        return allergenes;
     }
 
     public void setAllergens(Set<Allergene> allergens) {
-        this.allergens = allergens;
+        this.allergenes = allergens;
     }
 
     public Set<Additif> getAdditifs() {
