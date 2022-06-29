@@ -5,32 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6bbdeb28-c44e-422f-bc06-b3a3cce95750" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/AdditifManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/AllergeneManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/CategorieManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/IngredientManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/MarqueManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/bll/NutritionnalValueManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/AdditifImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/AllergeneImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/CategorieImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/GenericDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/IngredientImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/MarqueImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dal/NutritionnalValueImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bll/ProduitManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bll/ProduitManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bll/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bll/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Additif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Additif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Allergene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Allergene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Categorie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Categorie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Ingredient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Marque.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Marque.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bo/entities/Produit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bo/entities/Produit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dal/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dal/CategorieImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/CategorieImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dal/IngredientImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/IngredientImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dal/MarqueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/MarqueImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dal/NutritionnalValueImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/NutritionnalValueImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dal/ProduitImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dal/ProduitImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +148,7 @@
       <workItem from="1656419025908" duration="4506000" />
       <workItem from="1656424458543" duration="5837000" />
       <workItem from="1656438077949" duration="3104000" />
-      <workItem from="1656487905398" duration="15320000" />
+      <workItem from="1656487905398" duration="18392000" />
     </task>
     <servers />
   </component>

@@ -1,9 +1,13 @@
 package dal;
 
 import bll.BLLException;
+import bo.entities.NutritionnalValue;
 import bo.entities.Produit;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProduitImpl implements DAO<Produit> {
@@ -35,6 +39,14 @@ public class ProduitImpl implements DAO<Produit> {
 
     @Override
     public List<Produit> selectAll() throws DALException {
-        return null;
+        ResultSet rs;
+        List<Produit> produitList = new ArrayList<>();
+        try{
+            TypedQuery<Produit> selectAll = Settings.getProperty().createQuery("SELECT p FROM Produit p", Produit.class);
+            produitList = selectAll.getResultList();
+        } catch (DALException e){
+            throw new DALException("Problèmer lors de la récupération de la liste de produits");
+        }
+        return produitList;
     }
 }
