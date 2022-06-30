@@ -46,16 +46,22 @@ public class Test {
 
                 Categorie cat = new Categorie();
                 if(!line[0].isEmpty()){
+                    cat.setLibelle(line[0].toLowerCase());
                     List<Categorie> categorieList = categorieManager.getCategories();
                     if(!categorieList.isEmpty()){
-                        for(Categorie categorie : categorieList){
-                            if(!categorie.getLibelle().toLowerCase().equals(line[0].toLowerCase())){
-                                categorieManager.addCategorie(cat);
-                                prod.setCategorie(cat);
+                        boolean categorieExist = false;
+                        int index = 0;
+                        for(int i = 0; i < categorieList.size(); i++){
+                            if(categorieList.get(i).getLibelle().toLowerCase().equals(cat.getLibelle())){
+                                categorieExist = true;
+                                index = i;
                             }
-                            if(categorie.getLibelle().toLowerCase().equals(line[0].toLowerCase())){
-                                prod.setCategorie(categorie);
-                            }
+                        }
+                        if(categorieExist && index != 0){
+                            prod.setCategorie(categorieList.get(index));
+                        } else if (!categorieExist) {
+                            categorieManager.addCategorie(cat);
+                            prod.setCategorie(cat);
                         }
                     } else{
                         categorieManager.addCategorie(cat);
@@ -64,18 +70,25 @@ public class Test {
                 }
 
                 Marque mar = new Marque();
-                if(line[1] != null){
+                if(!line[1].isEmpty()){
+                    mar.setLibelle(line[1].toLowerCase());
                     List<Marque> marqueList = marqueManager.getMarques();
                     if(!marqueList.isEmpty()){
-                        for(Marque marque : marqueList){
-                            if(!marque.getLibelle().toLowerCase().equals(line[1].toLowerCase())){
-                                marqueManager.addMarque(mar);
-                                prod.setMarque(mar);
-                            }
-                            if(marque.getLibelle().toLowerCase().equals(line[1].toLowerCase())){
-                                prod.setMarque(marque);
+                        boolean marqueExist = false;
+                        int index = 0;
+                        for(int i = 0; i < marqueList.size(); i++){
+                            if(marqueList.get(i).getLibelle().toLowerCase().equals(mar.getLibelle())){
+                                marqueExist = true;
+                                index = i;
                             }
                         }
+                        if(marqueExist && index != 0){
+                            prod.setMarque(marqueList.get(index));
+                        } else if (!marqueExist) {
+                            marqueManager.addMarque(mar);
+                            prod.setMarque(mar);
+                        }
+
                     } else {
                         marqueManager.addMarque(mar);
                         prod.setMarque(mar);
@@ -139,23 +152,29 @@ public class Test {
                 Set<Allergene> allergenesList = new HashSet<>();
                 String[] allergenes = line[28].trim().split(",");
                 if(allergenes.length >= 1){
-                    Allergene all = new Allergene();
-                    all.setLibelle(allergenes[0]);
-                    allergeneManager.addAllergene(all);
-                    List<Allergene> allergeneDBList = allergeneManager.getAllergenes();
-                    for(String allergene : allergenes){
-                        if(!allergene.isEmpty()){
-                            all.setLibelle(allergene);
-                            allergenesList.add(all);
+                    for (String allergeneStr : allergenes){
+                        if(allergeneStr != null && !allergeneStr.isEmpty()){
+                            Allergene all = new Allergene();
+                            all.setLibelle(allergeneStr.toLowerCase());
+                            List<Allergene> allergeneDBList = allergeneManager.getAllergenes();
                             if(!allergeneDBList.isEmpty()){
-                                for(Allergene allergeneDB : allergeneDBList){
-                                    if(!allergene.toLowerCase().equals(allergeneDB.getLibelle().toLowerCase())){
-                                        allergeneManager.addAllergene(all);
+                                boolean allergeneExist = false;
+                                int index = 0;
+                                for(int i = 0; i < allergeneDBList.size(); i++){
+                                    if(allergeneDBList.get(i).getLibelle().toLowerCase().equals(all.getLibelle())){
+                                        allergeneExist = true;
+                                        index = i;
                                     }
                                 }
-                            } else{
+                                if(allergeneExist && index != 0){
+                                    allergenesList.add(allergeneDBList.get(index));
+                                } else if (!allergeneExist) {
+                                    allergenesList.add(all);
+                                    allergeneManager.addAllergene(all);
+                                }
+                            } else {
+                                allergenesList.add(all);
                                 allergeneManager.addAllergene(all);
-                                allergeneDBList = allergeneManager.getAllergenes();
                             }
                         }
                     }
@@ -165,30 +184,33 @@ public class Test {
                 Set<Additif> additifsList = new HashSet<>();
                 String[] additifs = line[29].trim().split(",");
                 if(additifs.length >= 1){
-                    Additif add = new Additif();
-                    add.setLibelle(additifs[0]);
-                    additifManager.addAdditif(add);
-                    additifsList.add(add);
-                    List<Additif> additifDBList = additifManager.getAdditifs();
-                    for(String additif : additifs){
-                        if(!additif.isEmpty()){
-                            add.setLibelle(additif);
-                            additifsList.add(add);
+                    for (String additifStr : additifs){
+                        if(additifStr != null && !additifStr.isEmpty()){
+                            Additif add = new Additif();
+                            add.setLibelle(additifStr.toLowerCase());
+                            List<Additif> additifDBList = additifManager.getAdditifs();
                             if(!additifDBList.isEmpty()){
-                                for(Additif additifDB : additifDBList){
-                                    if(!additif.toLowerCase().equals(additifDB.getLibelle().toLowerCase())){
-                                        additifManager.addAdditif(add);
+                                boolean additifExist = false;
+                                int index = 0;
+                                for(int i = 0; i < additifDBList.size(); i++){
+                                    if(additifDBList.get(i).getLibelle().toLowerCase().equals(add.getLibelle())){
+                                        additifExist = true;
+                                        index = i;
                                     }
                                 }
-                            } else{
+                                if(additifExist && index != 0){
+                                    additifsList.add(additifDBList.get(index));
+                                } else if (!additifExist) {
+                                    additifsList.add(add);
+                                    additifManager.addAdditif(add);
+                                }
+                            } else {
                                 additifManager.addAdditif(add);
-                                additifDBList = additifManager.getAdditifs();
+                                additifsList.add(add);
                             }
                         }
                     }
                 }
-
-
 
                 prod.setAllergens(allergenesList);
                 prod.setAdditifs(additifsList);
@@ -199,8 +221,6 @@ public class Test {
                 prod.setNutritionnalValue(ntv);
 
                 produitManager.addProduit(prod);
-                System.out.println(allergenesList);
-                System.out.println(additifsList);
             }
 
         } catch (IOException e) {

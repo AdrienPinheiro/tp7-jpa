@@ -8,7 +8,7 @@ public class Categorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "libelle", length = 255)
+    @Column(name = "libelle", length = 255,unique = true)
     private String libelle;
 
     public Categorie() {}
