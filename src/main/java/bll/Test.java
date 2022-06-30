@@ -45,16 +45,19 @@ public class Test {
                 Produit prod = new Produit();
 
                 Categorie cat = new Categorie();
-                if(line[0] != null){
-                    cat.setLibelle(line[0]);
+                if(!line[0].isEmpty()){
                     List<Categorie> categorieList = categorieManager.getCategories();
                     if(!categorieList.isEmpty()){
                         for(Categorie categorie : categorieList){
                             if(!categorie.getLibelle().toLowerCase().equals(line[0].toLowerCase())){
                                 categorieManager.addCategorie(cat);
+                                prod.setCategorie(cat);
+                            }
+                            if(categorie.getLibelle().toLowerCase().equals(line[0].toLowerCase())){
+                                prod.setCategorie(categorie);
                             }
                         }
-                    } else {
+                    } else{
                         categorieManager.addCategorie(cat);
                         prod.setCategorie(cat);
                     }
@@ -62,12 +65,15 @@ public class Test {
 
                 Marque mar = new Marque();
                 if(line[1] != null){
-                    mar.setLibelle(line[1]);
                     List<Marque> marqueList = marqueManager.getMarques();
                     if(!marqueList.isEmpty()){
                         for(Marque marque : marqueList){
                             if(!marque.getLibelle().toLowerCase().equals(line[1].toLowerCase())){
                                 marqueManager.addMarque(mar);
+                                prod.setMarque(mar);
+                            }
+                            if(marque.getLibelle().toLowerCase().equals(line[1].toLowerCase())){
+                                prod.setMarque(marque);
                             }
                         }
                     } else {
@@ -192,9 +198,6 @@ public class Test {
                 prod.setIngredients(ingredientsList);
                 prod.setNutritionnalValue(ntv);
 
-
-                categorieManager.addCategorie(cat);
-                marqueManager.addMarque(mar);
                 produitManager.addProduit(prod);
                 System.out.println(allergenesList);
                 System.out.println(additifsList);
